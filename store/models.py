@@ -3,10 +3,12 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+# https: // docs.djangoproject.com/en/1.10/topics/db/examples/one_to_one/
+
 
 class Customer(models.Model):
     user = models.OneToOneField(
-        User, null=True, blank=True, on_delete=models.CASCADE)
+        User, null=True, blank=True, on_delete=models.CASCADE, related_name='customer')
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200)
 
@@ -16,7 +18,7 @@ class Customer(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
-    price = models.DecimalField(max_digits=7, decimal_places=2)
+    price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
@@ -82,7 +84,7 @@ class ShippingAddress(models.Model):
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     address = models.CharField(max_length=200, null=False)
     city = models.CharField(max_length=200, null=False)
-    state = models.CharField(max_length=200, null=False)
+    county = models.CharField(max_length=200, null=False)
     zipcode = models.CharField(max_length=200, null=False)
     date_added = models.DateTimeField(auto_now_add=True)
 

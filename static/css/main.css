@@ -40,7 +40,7 @@ h6 {
 	color: #fff;
 	background-color: red;
 	width: 20px;
-	height: 25px;
+	height: 20px;
 	border-radius: 50%;
 	font-size: 14px;
 }
@@ -53,7 +53,8 @@ h6 {
 }
 
 .btn {
-	border-radius: 0;
+	border-radius: 35px;
+	font-size: 15px;
 }
 
 .row-image {
@@ -94,4 +95,24 @@ h6 {
 
 .hidden {
 	display: none !important;
+}
+
+.form-control::placeholder {
+	font-size: 0.95rem;
+	font-style: italic;
+}
+
+.form-control.shadow-0:focus {
+	box-shadow: none;
+}
+
+.fa,
+.fa-brands {
+	color: rgb(230, 215, 215);
+}
+
+.hello-msg {
+	text-decoration: none;
+	color: white;
+	margin: 1rem;
 }
