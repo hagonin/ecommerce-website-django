@@ -99,16 +99,10 @@
 						</li>
 					</ul>
 					<div class="d-flex my-2 my-lg-0">
-						{% comment %}
+						<span><a class="hello-msg">Hello, {{request.user}}</a></span>
 						<span
-							><a href="# " class="hello-msg">Hello, {{request.user}}</a></span
-						>
-						{% endcomment %}
-						<span
-							><a href="{% url 'login' %}" class="btn btn-warning"
-								>Login</a
-							></span
-						>
+							><a href="{% url 'login' %}" class="btn btn-warning">Logout</a>
+						</span>
 
 						<a href="{% url 'cart' %}">
 							<img id="cart-icon" src="{% static 'images/cart.png' %}" />

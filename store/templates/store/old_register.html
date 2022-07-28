@@ -31,7 +31,6 @@
 				font-size: 15px;
 				margin: 0;
 				color: #fff;
-
 				background-color: #56cc9d;
 			}
 
@@ -57,11 +56,13 @@
 			.form-inner {
 				background: #ff97a4;
 				border-radius: 10px;
-				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+				box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+					rgba(17, 17, 26, 0.1) 0px 16px 56px,
+					rgba(17, 17, 26, 0.1) 0px 24px 80px;
 				padding-top: 5vh;
 				padding-left: 5vw;
 				padding-right: 5vw;
-				height: 70vh;
+				height: 90vh;
 			}
 
 			form {
@@ -171,6 +172,35 @@
 				transform: scaleX(1);
 			}
 
+			.socials {
+				text-align: center;
+				margin-top: 45px;
+			}
+
+			.socials-icon {
+				display: inline-flex;
+				width: 41px;
+				height: 41px;
+				border-radius: 50%;
+				align-items: center;
+				justify-content: center;
+				border: 1px solid rgba(255, 255, 255, 0.5);
+				font-size: 19px;
+				color: #fff;
+				transition: all 0.5s ease;
+				margin-right: 19px;
+			}
+
+			.socials-icon:hover {
+				background: #fff;
+				border: 1px solid transparent;
+				color: #ff97a4;
+			}
+
+			.socials-icon:last-child {
+				margin-right: 0;
+			}
+
 			p {
 				font-family: 'Muli-SemiBold';
 				color: #ffff66;
@@ -239,36 +269,39 @@
 				<form action="" method="POST">
 					{% csrf_token %}
 					<div class="form-header">
-						<h3>LOGIN</h3>
+						<h3>Sign up</h3>
 					</div>
 					<div class="form-group">
-						<label for="">Username:</label>
-						<input
-							type="text"
-							name="username"
-							class="form-control"
-							data-validation="username"
-						/>
+						{{form.username.label}} {{form.username}}
+					</div>
+					<div class="form-group">{{form.email.label}} {{form.email}}</div>
+					<div class="form-group">
+						{{form.password1.label}} {{form.password1}}
 					</div>
 					<div class="form-group">
-						<label for="">Password:</label>
-						<input
-							type="password"
-							name="password"
-							class="form-control"
-							data-validation="length"
-							data-validation-length="min8"
-						/>
+						{{form.password2.label}} {{form.password2}}
 					</div>
+					<button>create my account</button>
 
-					<button>Log in</button>
-
-					{% for message in messages %}
-					<p id="messages">{{message}}</p>
-					{% endfor %}
+					{{form.errors}}
 					<div class="text-center mt-3">
-						Don't have an account?
-						<a href="{% url 'register' %}" class="text-warning"> Sign Up </a>
+						Already have an account?
+						<a href="{% url 'login' %}" class="text-warning"> Login </a>
+					</div>
+					<div class="socials">
+						<p>Sign up with social platforms</p>
+						<a href="" class="socials-icon">
+							<i class="fa-brands fa-facebook"></i>
+						</a>
+						<a href="" class="socials-icon">
+							<i class="fa-brands fa-instagram"></i>
+						</a>
+						<a href="" class="socials-icon">
+							<i class="fa-brands fa-twitter"></i>
+						</a>
+						<a href="" class="socials-icon">
+							<i class="fa-brands fa-tumblr"></i>
+						</a>
 					</div>
 				</form>
 			</div>

@@ -16,7 +16,7 @@ def cookieCart(request):
     cartItems = order['get_cart_items']
 
     for i in cart:
-        # We use try block to prevent items in cart that may have been removed from causing error
+        # Try block to prevent items in cart that may have been removed from causing error
         try:
             cartItems += cart[i]['quantity']
 
