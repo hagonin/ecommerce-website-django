@@ -11,7 +11,6 @@ import datetime
 from .models import *
 from .forms import CreateUserForm
 from .utils import cookieCart, cartData, guestOrder
-# from .decorators import unauthenticated_user, allowed_users, admin_only
 
 
 def registerPage(request):
@@ -59,7 +58,7 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('login')
+    return redirect('store')
 
 
 def store(request):

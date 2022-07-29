@@ -11,12 +11,14 @@ class Customer(models.Model):
         User, null=True, blank=True, on_delete=models.CASCADE, related_name='customer')
     name = models.CharField(max_length=200, null=True)
     email = models.EmailField(max_length=200, unique=True)
+    phone = models.CharField(max_length=200, null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.name
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
 
 
 class Product(models.Model):
